@@ -23,14 +23,25 @@ Galeri Desa
 <div class="col-md-4 mb-4">
 
 
-<div class="card">
+<div class="card shadow h-100">
+
 
 
 <img
 
 src="/static/uploads/galeri/{{item.foto}}"
 
-class="card-img-top">
+class="card-img-top img-fluid"
+
+style="
+width:100%;
+height:auto;
+"
+
+alt="{{item.judul}}"
+
+>
+
 
 
 
@@ -59,10 +70,12 @@ class="card-img-top">
 {% endfor %}
 
 
+
 </div>
 
 
 </div>
+
 
 
 {% endblock %}
