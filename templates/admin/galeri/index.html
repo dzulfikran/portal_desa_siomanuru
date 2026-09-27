@@ -1,0 +1,87 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Galeri Desa
+</h2>
+
+
+<a href="/admin/galeri/tambah"
+class="btn btn-success mb-3">
+
+Tambah Foto
+
+</a>
+
+
+
+<div class="row">
+
+
+{% for item in data %}
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card">
+
+
+<img
+
+src="/static/uploads/galeri/{{item.foto}}"
+
+class="card-img-top">
+
+
+
+<div class="card-body">
+
+
+<h5>
+{{item.judul}}
+</h5>
+
+
+<p>
+{{item.kategori}}
+</p>
+
+
+
+<a
+
+href="/admin/galeri/hapus/{{item.id}}"
+
+class="btn btn-danger btn-sm">
+
+Hapus
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

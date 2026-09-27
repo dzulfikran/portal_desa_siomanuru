@@ -1,0 +1,176 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Edit UMKM
+</h2>
+
+
+<form 
+method="POST"
+enctype="multipart/form-data">
+
+
+<div class="mb-3">
+
+<label>
+Nama Produk
+</label>
+
+<input
+type="text"
+name="nama_produk"
+class="form-control"
+value="{{umkm.nama_produk}}">
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Deskripsi
+</label>
+
+<textarea
+name="deskripsi"
+class="form-control">{{umkm.deskripsi}}</textarea>
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Harga
+</label>
+
+<input
+type="text"
+name="harga"
+class="form-control"
+value="{{umkm.harga}}">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Nama Pemilik
+</label>
+
+
+<input
+type="text"
+name="nama_pemilik"
+class="form-control"
+value="{{umkm.nama_pemilik}}">
+
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Alamat
+</label>
+
+
+<textarea
+name="alamat"
+class="form-control">{{umkm.alamat}}</textarea>
+
+
+</div>
+
+
+<div class="mb-3">
+    <label class="form-label">
+        Nomor WhatsApp
+    </label>
+
+    <input
+        type="tel"
+        name="nomor_hp"
+        class="form-control"
+        value="{{umkm.nomor_hp}}"
+        placeholder="Contoh: 081234567890"
+        pattern="08[0-9]{8,13}"
+        maxlength="15"
+        inputmode="numeric"
+        required>
+
+    <div class="form-text">
+        Gunakan format <strong>08xxxxxxxxxx</strong> tanpa tanda <strong>-</strong>,
+        spasi, atau <strong>+62</strong>.
+    </div>
+</div>
+
+
+{% if umkm.foto %}
+
+
+<img
+
+src="/static/uploads/umkm/{{umkm.foto}}"
+
+width="200"
+
+class="rounded mb-3">
+
+
+{% endif %}
+
+<div class="mb-3">
+
+<label>
+Ganti Foto Produk
+</label>
+
+
+<input 
+type="file"
+name="foto"
+class="form-control">
+
+</div>
+
+
+
+<button class="btn btn-success">
+
+Update
+
+</button>
+
+
+<a href="/admin/umkm"
+class="btn btn-secondary">
+
+Kembali
+
+</a>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "admin/base_admin.html" %}
+
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Tambah Kegiatan
+</h2>
+
+
+
+<form 
+method="POST"
+enctype="multipart/form-data">
+
+
+<div class="mb-3">
+
+<label>
+Nama Kegiatan
+</label>
+
+
+<input
+name="nama"
+class="form-control">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Tanggal
+</label>
+
+
+<input
+type="date"
+name="tanggal"
+class="form-control">
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Kategori
+</label>
+
+
+<select 
+name="kategori"
+class="form-control">
+
+
+<option value="AKAN_DATANG">
+Akan Datang
+</option>
+
+
+<option value="SELESAI">
+Sudah Lewat
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Deskripsi
+</label>
+
+
+<textarea
+name="deskripsi"
+class="form-control">
+
+</textarea>
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Banner Kegiatan
+</label>
+
+
+<input
+type="file"
+name="banner"
+class="form-control">
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Dokumentasi Foto
+</label>
+
+
+<input
+type="file"
+name="foto"
+multiple
+class="form-control">
+
+</div>
+
+
+
+<button class="btn btn-success">
+
+Simpan
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

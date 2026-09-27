@@ -1,0 +1,290 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Edit Profil Desa
+</h2>
+
+
+<form
+method="POST"
+enctype="multipart/form-data">
+
+
+
+<label>
+Nama Desa
+</label>
+
+<input
+class="form-control"
+name="nama_desa"
+value="{{profil.nama_desa}}">
+
+
+
+
+
+<label class="mt-3">
+Deskripsi Desa
+</label>
+
+
+<textarea
+class="form-control"
+rows="5"
+name="deskripsi">{{profil.deskripsi}}</textarea>
+
+
+
+
+
+<label class="mt-3">
+Sejarah Desa
+</label>
+
+
+<textarea
+class="form-control"
+rows="5"
+name="sejarah">{{profil.sejarah}}</textarea>
+
+
+
+
+
+<label class="mt-3">
+Visi
+</label>
+
+
+<textarea
+class="form-control"
+rows="3"
+name="visi">{{profil.visi}}</textarea>
+
+
+
+
+
+<label class="mt-3">
+Misi
+</label>
+
+
+<textarea
+class="form-control"
+rows="5"
+name="misi">{{profil.misi}}</textarea>
+
+
+
+
+
+<label class="mt-3">
+Kepala Desa
+</label>
+
+
+<input
+
+class="form-control"
+
+name="kepala_desa"
+
+value="{{profil.kepala_desa}}">
+
+
+
+
+
+<label class="mt-3">
+Alamat Desa
+</label>
+
+
+<textarea
+
+class="form-control"
+
+name="alamat">{{profil.alamat}}</textarea>
+
+
+
+
+
+<label class="mt-3">
+Google Maps Embed
+</label>
+
+
+<textarea
+
+class="form-control"
+
+rows="4"
+
+name="maps">{{profil.maps}}</textarea>
+
+
+
+
+
+<hr>
+
+
+<h4>
+Statistik Desa
+</h4>
+
+
+
+
+<label>
+Jumlah Penduduk
+</label>
+
+
+<input
+
+type="number"
+
+class="form-control"
+
+name="jumlah_penduduk"
+
+value="{{profil.jumlah_penduduk}}">
+
+
+
+
+
+<label class="mt-3">
+Jumlah Kepala Keluarga
+</label>
+
+
+<input
+
+type="number"
+
+class="form-control"
+
+name="jumlah_kk"
+
+value="{{profil.jumlah_kk}}">
+
+
+
+
+
+<label class="mt-3">
+Luas Wilayah
+</label>
+
+
+<input
+
+class="form-control"
+
+name="luas_wilayah"
+
+value="{{profil.luas_wilayah}}">
+
+
+
+
+
+<label class="mt-3">
+Jumlah Dusun
+</label>
+
+
+<input
+
+type="number"
+
+class="form-control"
+
+name="jumlah_dusun"
+
+value="{{profil.jumlah_dusun}}">
+
+
+
+
+
+<hr>
+
+
+<h4>
+Foto Desa
+</h4>
+
+
+
+{% if profil.foto %}
+
+
+<img
+
+src="/static/uploads/profil/{{profil.foto}}"
+
+width="250"
+
+class="rounded mb-3">
+
+
+{% endif %}
+
+
+
+
+<input
+
+type="file"
+
+class="form-control"
+
+name="foto">
+
+
+
+<small class="text-muted">
+
+Format:
+JPG, JPEG, PNG, WEBP
+
+<br>
+
+Maksimal:
+5 MB
+
+</small>
+
+
+
+
+<br>
+
+
+<button class="btn btn-success mt-3">
+
+Simpan Perubahan
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

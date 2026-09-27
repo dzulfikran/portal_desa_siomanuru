@@ -1,0 +1,192 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Data UMKM Desa
+</h2>
+
+
+<a href="/admin/umkm/tambah"
+class="btn btn-success mb-3">
+
++ Tambah UMKM
+
+</a>
+
+
+
+
+<table class="table table-bordered table-striped">
+
+
+<thead>
+
+<tr>
+
+<th>
+No
+</th>
+
+
+<th>
+Foto
+</th>
+
+
+<th>
+Nama Produk
+</th>
+
+
+<th>
+Harga
+</th>
+
+
+<th>
+Pemilik
+</th>
+
+
+<th>
+Kontak
+</th>
+
+
+<th>
+Aksi
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+{% for item in data %}
+
+
+<tr>
+
+
+<td>
+{{loop.index}}
+</td>
+
+
+
+
+<td>
+
+
+{% if item.foto %}
+
+
+<img
+
+src="/static/uploads/umkm/{{item.foto}}"
+
+width="100"
+
+class="rounded">
+
+
+{% else %}
+
+Tidak ada foto
+
+{% endif %}
+
+
+</td>
+
+
+
+
+<td>
+{{item.nama_produk}}
+</td>
+
+
+
+
+<td>
+{{item.harga}}
+</td>
+
+
+
+
+<td>
+{{item.nama_pemilik}}
+</td>
+
+
+
+
+<td>
+{{item.nomor_hp}}
+</td>
+
+
+
+
+<td>
+
+
+<a
+
+href="/admin/umkm/edit/{{item.id}}"
+
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+
+
+
+<a
+
+href="/admin/umkm/hapus/{{item.id}}"
+
+class="btn btn-danger btn-sm"
+
+onclick="return confirm('Hapus data UMKM ini?')">
+
+Hapus
+
+</a>
+
+
+</td>
+
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+
+<!-- HERO -->
+
+<section 
+class="hero"
+style="
+background-image:
+linear-gradient(
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.45)
+),
+url('/static/uploads/profil/{{profil.foto}}');
+">
+
+
+<div class="overlay">
+
+
+<h1>
+{{profil.nama_desa}}
+</h1>
+
+
+<p>
+Selamat Datang di Portal Resmi Desa
+</p>
+
+
+
+<a href="/profil"
+class="btn btn-success">
+
+Profil Desa
+
+</a>
+
+
+<a href="/kegiatan"
+class="btn btn-outline-light">
+
+Kegiatan
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- STATISTIK -->
+
+<div class="container mt-5">
+
+
+<h2 class="text-center">
+
+Statistik Desa
+
+</h2>
+
+
+
+<div class="row text-center mt-4">
+
+
+<div class="col-md-3">
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+<h2>
+👥
+</h2>
+
+<h4>
+{{profil.jumlah_penduduk}}
+</h4>
+
+<p>
+Penduduk
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🏠
+</h2>
+
+
+<h4>
+{{profil.jumlah_kk}}
+</h4>
+
+
+<p>
+KK
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🌍
+</h2>
+
+
+<h4>
+{{profil.luas_wilayah}}
+</h4>
+
+
+<p>
+Wilayah
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🏘
+</h2>
+
+
+<h4>
+{{profil.jumlah_dusun}}
+</h4>
+
+
+<p>
+Dusun
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<!-- PROFIL SINGKAT -->
+
+
+<div class="container mt-5">
+
+
+<div class="row">
+
+
+<div class="col-md-6">
+
+
+{% if profil.foto %}
+
+
+<img
+
+src="/static/uploads/profil/{{profil.foto}}"
+
+class="img-fluid rounded">
+
+
+{% endif %}
+
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+
+<h2>
+Tentang Desa
+</h2>
+
+
+<p>
+
+{{profil.deskripsi}}
+
+</p>
+
+
+
+<a href="/profil"
+class="btn btn-success">
+
+Selengkapnya
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- UMKM -->
+
+<div class="container mt-5">
+
+
+<h2>
+UMKM Desa
+</h2>
+
+
+
+<div class="row">
+
+
+{% for item in umkm %}
+
+
+<div class="col-md-4">
+
+
+<div class="card shadow">
+
+
+{% if item.foto %}
+
+
+<img
+
+src="/static/uploads/umkm/{{item.foto}}"
+
+class="card-img-top">
+
+
+{% endif %}
+
+
+
+<div class="card-body">
+
+
+<h5>
+
+{{item.nama_produk}}
+
+</h5>
+
+
+<p>
+
+{{item.harga}}
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- KEGIATAN -->
+
+
+<div class="container mt-5">
+
+
+<h2>
+Kegiatan Terbaru
+</h2>
+
+
+
+{% for item in kegiatan %}
+
+
+<div class="card mb-3">
+
+
+<div class="card-body">
+
+
+<h5>
+{{item.nama}}
+</h5>
+
+
+<p>
+{{item.tanggal}}
+</p>
+
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+
+<!-- GALERI -->
+
+
+<div class="container mt-5">
+
+
+<h2>
+Galeri Desa
+</h2>
+
+
+<div class="row">
+
+
+{% for item in galeri %}
+
+
+<div class="col-md-4 mb-3">
+
+
+<img
+
+src="/static/uploads/galeri/{{item.foto}}"
+
+class="img-fluid rounded">
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

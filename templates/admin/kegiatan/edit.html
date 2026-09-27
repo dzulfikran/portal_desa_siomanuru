@@ -1,0 +1,181 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Edit Kegiatan
+</h2>
+
+
+
+<form 
+method="POST"
+enctype="multipart/form-data">
+
+
+<div class="mb-3">
+
+<label>
+Nama Kegiatan
+</label>
+
+<input
+name="nama"
+class="form-control"
+value="{{kegiatan.nama}}">
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Tanggal
+</label>
+
+<input
+type="date"
+name="tanggal"
+class="form-control"
+value="{{kegiatan.tanggal}}">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Kategori
+</label>
+
+
+<select
+name="kategori"
+class="form-control">
+
+
+<option value="AKAN_DATANG"
+{% if kegiatan.kategori=="AKAN_DATANG" %}
+selected
+{% endif %}
+>
+Akan Datang
+</option>
+
+
+
+<option value="SELESAI"
+{% if kegiatan.kategori=="SELESAI" %}
+selected
+{% endif %}
+>
+Selesai
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Deskripsi
+</label>
+
+
+<textarea
+name="deskripsi"
+class="form-control">{{kegiatan.deskripsi}}</textarea>
+
+
+</div>
+
+
+
+
+<hr>
+
+
+<h5>
+Ganti Banner
+</h5>
+
+
+{% if kegiatan.banner %}
+
+<img
+src="/static/uploads/kegiatan/{{kegiatan.banner}}"
+width="250"
+class="mb-3">
+
+{% endif %}
+
+
+<input
+type="file"
+name="banner"
+class="form-control">
+
+
+
+<hr>
+
+
+<h5>
+Tambah Dokumentasi Foto
+</h5>
+
+
+<input
+type="file"
+name="foto"
+multiple
+class="form-control">
+
+
+<small>
+Format: JPG, JPEG, PNG, WEBP
+<br>
+Maksimal ukuran: 5 MB
+</small>
+
+
+
+<br>
+
+
+<button class="btn btn-success">
+
+Simpan Perubahan
+
+</button>
+
+
+<a href="/admin/kegiatan"
+class="btn btn-secondary">
+
+Kembali
+
+</a>
+
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

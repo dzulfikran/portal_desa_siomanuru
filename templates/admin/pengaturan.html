@@ -1,0 +1,111 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h3>
+Pengaturan Akun Admin
+</h3>
+
+
+
+<form method="POST">
+
+
+
+<label>
+Username Baru
+</label>
+
+
+<input
+
+type="text"
+
+name="username"
+
+class="form-control"
+
+value="{{user.username}}"
+
+required>
+
+
+
+<label class="mt-3">
+
+Password Lama
+
+</label>
+
+
+<input
+
+type="password"
+
+name="password_lama"
+
+class="form-control"
+
+required>
+
+
+
+
+
+<label class="mt-3">
+
+Password Baru
+
+</label>
+
+
+<input
+
+type="password"
+
+name="password_baru"
+
+class="form-control"
+
+placeholder="Kosongkan jika tidak ingin mengganti">
+
+
+
+
+
+<button
+
+class="btn btn-success mt-4">
+
+Simpan Perubahan
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

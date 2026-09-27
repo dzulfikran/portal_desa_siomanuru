@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h1>
+Galeri Desa
+</h1>
+
+
+
+<div class="row">
+
+
+{% for item in data %}
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card">
+
+
+<img
+
+src="/static/uploads/galeri/{{item.foto}}"
+
+class="card-img-top">
+
+
+
+<div class="card-body">
+
+
+<h5>
+{{item.judul}}
+</h5>
+
+
+<p>
+{{item.deskripsi}}
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

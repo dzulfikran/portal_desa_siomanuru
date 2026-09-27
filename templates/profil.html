@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+
+<h1>
+{{profil.nama_desa}}
+</h1>
+
+
+
+{% if profil.foto %}
+
+<img
+
+src="/static/uploads/profil/{{profil.foto}}"
+
+class="img-fluid rounded w-100">
+
+{% endif %}
+
+
+<hr>
+
+
+<h3>
+Statistik Desa
+</h3>
+
+
+
+<div class="row text-center mt-4">
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+👥
+</h2>
+
+
+<h4>
+{{profil.jumlah_penduduk}}
+</h4>
+
+
+<p>
+Penduduk
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🏠
+</h2>
+
+
+<h4>
+{{profil.jumlah_kk}}
+</h4>
+
+
+<p>
+Kepala Keluarga
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🌍
+</h2>
+
+
+<h4>
+{{profil.luas_wilayah}}
+</h4>
+
+
+<p>
+Luas Wilayah
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h2>
+🏘
+</h2>
+
+
+<h4>
+{{profil.jumlah_dusun}}
+</h4>
+
+
+<p>
+Dusun
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+<h3 class="mt-4">
+Tentang Desa
+</h3>
+
+
+<p>
+{{profil.deskripsi}}
+</p>
+
+
+
+<h3>
+Sejarah
+</h3>
+
+
+<p>
+{{profil.sejarah}}
+</p>
+
+
+
+<h3>
+Visi
+</h3>
+
+
+<p>
+{{profil.visi}}
+</p>
+
+
+
+<h3>
+Misi
+</h3>
+
+
+<p>
+{{profil.misi}}
+</p>
+
+
+
+<h3>
+Lokasi
+</h3>
+
+
+<div class="mt-5">
+
+<h3>
+Lokasi Desa
+</h3>
+
+
+<div class="ratio ratio-16x9">
+
+{{profil.maps|safe}}
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+{% endblock %}

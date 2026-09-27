@@ -1,0 +1,256 @@
+{% extends "admin/base_admin.html" %}
+
+
+
+{% block content %}
+
+
+
+<div class="container mt-5">
+
+
+
+<h2>
+
+Dashboard Admin
+
+</h2>
+
+
+
+<div class="row mt-4">
+
+
+
+<!-- UMKM -->
+
+<div class="col-md-3">
+
+
+<div class="card shadow text-center">
+
+
+<div class="card-body">
+
+
+<h2>
+🏭
+</h2>
+
+
+<h3>
+
+{{jumlah_umkm}}
+
+</h3>
+
+
+<p>
+
+UMKM
+
+</p>
+
+
+<a href="/admin/umkm"
+
+class="btn btn-success btn-sm">
+
+Kelola
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- KEGIATAN -->
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow text-center">
+
+
+<div class="card-body">
+
+
+<h2>
+📅
+</h2>
+
+
+<h3>
+
+{{jumlah_kegiatan}}
+
+</h3>
+
+
+<p>
+
+Kegiatan
+
+</p>
+
+
+<a href="/admin/kegiatan"
+
+class="btn btn-success btn-sm">
+
+Kelola
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- GALERI -->
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow text-center">
+
+
+<div class="card-body">
+
+
+<h2>
+🖼️
+</h2>
+
+
+<h3>
+
+{{jumlah_galeri}}
+
+</h3>
+
+
+<p>
+
+Galeri
+
+</p>
+
+
+<a href="/admin/galeri"
+
+class="btn btn-success btn-sm">
+
+Kelola
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- PROFIL -->
+
+
+<div class="col-md-3">
+
+
+<div class="card shadow text-center">
+
+
+<div class="card-body">
+
+
+<h2>
+🏠
+</h2>
+
+
+
+{% if profil %}
+
+
+<h5>
+
+Lengkap
+
+</h5>
+
+
+{% else %}
+
+
+<h5>
+
+Belum Ada
+
+</h5>
+
+
+{% endif %}
+
+
+
+<p>
+
+Profil Desa
+
+</p>
+
+
+<a href="/admin/profil"
+
+class="btn btn-success btn-sm">
+
+Edit
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}

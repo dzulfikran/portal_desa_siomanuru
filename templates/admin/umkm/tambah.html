@@ -1,0 +1,164 @@
+{% extends "admin/base_admin.html" %}
+
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Tambah UMKM
+</h2>
+
+
+
+<form 
+method="POST"
+enctype="multipart/form-data">
+
+
+
+<div class="mb-3">
+
+<label>
+Nama Produk
+</label>
+
+<input 
+name="nama_produk"
+class="form-control">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Deskripsi
+</label>
+
+<textarea
+name="deskripsi"
+class="form-control">
+</textarea>
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Harga
+</label>
+
+<input
+name="harga"
+class="form-control">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Nama Pemilik
+</label>
+
+<input
+name="nama_pemilik"
+class="form-control">
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Alamat
+</label>
+
+<textarea
+name="alamat"
+class="form-control">
+</textarea>
+
+</div>
+
+
+
+
+<div class="mb-3">
+    <label class="form-label">
+        Nomor WhatsApp
+    </label>
+
+    <input
+        type="tel"
+        name="nomor_hp"
+        class="form-control"
+        placeholder="Contoh: 081234567890"
+        pattern="08[0-9]{8,13}"
+        maxlength="15"
+        inputmode="numeric"
+        required>
+
+    <div class="form-text">
+        Gunakan format <strong>08xxxxxxxxxx</strong> tanpa tanda <strong>-</strong>,
+        spasi, atau <strong>+62</strong>.
+    </div>
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Foto Produk
+</label>
+
+
+<input
+type="file"
+name="foto"
+class="form-control">
+
+<small class="text-muted">
+
+Format:
+JPG, JPEG, PNG, WEBP
+
+<br>
+
+Maksimal:
+5 MB
+
+</small>
+</div>
+
+
+
+
+<button class="btn btn-success">
+
+Simpan
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

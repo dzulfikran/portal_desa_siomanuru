@@ -1,0 +1,98 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Tambah Galeri
+</h2>
+
+
+
+<form
+
+method="POST"
+
+enctype="multipart/form-data">
+
+
+
+<label>
+Judul Foto
+</label>
+
+
+<input
+
+name="judul"
+
+class="form-control">
+
+
+
+
+
+<label class="mt-3">
+Kategori
+</label>
+
+
+<input
+
+name="kategori"
+
+class="form-control">
+
+
+
+
+
+<label class="mt-3">
+Deskripsi
+</label>
+
+
+<textarea
+
+name="deskripsi"
+
+class="form-control">
+
+</textarea>
+
+
+
+
+<label class="mt-3">
+Foto
+</label>
+
+
+<input
+
+type="file"
+
+name="foto"
+
+class="form-control">
+
+
+
+<button class="btn btn-success mt-3">
+
+Simpan
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

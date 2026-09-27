@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h1 class="text-center">
+
+Jadwal Kegiatan Desa
+
+</h1>
+
+
+<h3 class="text-center mt-3">
+
+{{nama_bulan(bulan)}}
+{{tahun}}
+
+</h3>
+
+
+
+<div class="d-flex justify-content-between mt-4">
+
+
+<a 
+href="/kegiatan?bulan={{pindah(bulan,tahun,-1).bulan}}&tahun={{pindah(bulan,tahun,-1).tahun}}"
+class="btn btn-outline-success">
+
+← Bulan Sebelumnya
+
+</a>
+
+
+
+<a 
+href="/kegiatan?bulan={{pindah(bulan,tahun,1).bulan}}&tahun={{pindah(bulan,tahun,1).tahun}}"
+class="btn btn-outline-success">
+
+Bulan Berikutnya →
+
+</a>
+
+
+</div>
+
+
+
+<hr>
+
+<h4 class="mt-4">
+Kalender Kegiatan
+</h4>
+
+
+<table class="table table-bordered text-center">
+
+
+<tr>
+
+<th>Sen</th>
+<th>Sel</th>
+<th>Rab</th>
+<th>Kam</th>
+<th>Jum</th>
+<th>Sab</th>
+<th>Min</th>
+
+</tr>
+
+
+
+{% for minggu in kalender %}
+
+<tr>
+
+
+{% for hari in minggu %}
+
+
+<td 
+style="height:80px;cursor:pointer"
+onclick="window.location='#tanggal-{{hari}}'"
+>
+
+
+{% if hari != 0 %}
+
+
+{{hari}}
+
+
+
+{% for item in kegiatan %}
+
+
+{% if item.tanggal.day == hari %}
+
+
+<br>
+
+{% if item.kategori=="AKAN_DATANG" %}
+
+<span class="badge bg-primary">
+●
+</span>
+
+
+{% else %}
+
+<span class="badge bg-secondary">
+●
+</span>
+
+
+{% endif %}
+
+
+{% endif %}
+
+
+{% endfor %}
+
+
+
+{% endif %}
+
+
+</td>
+
+
+{% endfor %}
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+<hr>
+
+
+<h4 class="mb-3">
+Daftar Kegiatan {{nama_bulan(bulan)}}
+</h4>
+
+
+
+{% for item in kegiatan %}
+
+
+<div 
+class="card shadow mb-3 event-card"
+id="tanggal-{{item.tanggal.day}}"
+>
+
+
+<div class="card-body">
+
+
+<h5>
+
+{{item.nama}}
+
+</h5>
+
+
+<p>
+
+📅 {{item.tanggal}}
+
+</p>
+
+
+<p>
+
+{{item.deskripsi}}
+
+</p>
+
+
+
+{% if item.kategori=="AKAN_DATANG" %}
+
+<span class="badge bg-primary">
+
+Akan Datang
+
+</span>
+
+
+{% else %}
+
+
+<span class="badge bg-secondary">
+
+Selesai
+
+</span>
+
+
+{% endif %}
+
+
+
+{% if item.banner %}
+
+
+<img 
+src="/static/uploads/kegiatan/{{item.banner}}"
+class="img-fluid mt-3">
+
+
+{% endif %}
+
+
+
+<h5 class="mt-3">
+Dokumentasi
+</h5>
+
+
+<div class="row">
+
+
+{% for foto in item.dokumentasi %}
+
+
+<div class="col-md-4 mb-3">
+
+
+<img
+
+src="/static/uploads/kegiatan/dokumentasi/{{foto.foto}}"
+
+class="img-fluid rounded"
+
+>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+{% else %}
+
+
+<p>
+Belum ada kegiatan bulan ini.
+</p>
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+{% endblock %}

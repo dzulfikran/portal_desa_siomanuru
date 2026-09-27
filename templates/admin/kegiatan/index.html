@@ -1,0 +1,242 @@
+{% extends "admin/base_admin.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2>
+Data Kegiatan Desa
+</h2>
+
+
+
+<a href="/admin/kegiatan/tambah"
+
+class="btn btn-success mb-3">
+
++ Tambah Kegiatan
+
+</a>
+
+
+
+
+<table class="table table-bordered table-striped">
+
+
+<thead>
+
+<tr>
+
+
+<th>
+No
+</th>
+
+
+<th>
+Banner
+</th>
+
+
+<th>
+Nama Kegiatan
+</th>
+
+
+<th>
+Tanggal
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Dokumentasi
+</th>
+
+
+<th>
+Aksi
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+{% for item in data %}
+
+
+<tr>
+
+
+
+<td>
+{{loop.index}}
+</td>
+
+
+
+
+<td>
+
+
+{% if item.banner %}
+
+
+<img
+
+src="/static/uploads/kegiatan/{{item.banner}}"
+
+width="120"
+
+class="rounded">
+
+
+{% else %}
+
+-
+
+{% endif %}
+
+
+</td>
+
+
+
+
+
+<td>
+
+{{item.nama}}
+
+</td>
+
+
+
+
+<td>
+
+{{item.tanggal}}
+
+</td>
+
+
+
+
+<td>
+
+
+{% if item.kategori=="AKAN_DATANG" %}
+
+
+<span class="badge bg-primary">
+
+Akan Datang
+
+</span>
+
+
+{% else %}
+
+
+<span class="badge bg-secondary">
+
+Selesai
+
+</span>
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+<td>
+
+
+<a href="/admin/kegiatan/detail/{{item.id}}"
+
+class="btn btn-info btn-sm">
+
+
+{{item.dokumentasi|length}}
+
+Foto
+
+
+</a>
+
+
+
+</td>
+
+
+
+
+
+<td>
+
+
+
+<a href="/admin/kegiatan/edit/{{item.id}}"
+
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+
+
+<a href="/admin/kegiatan/hapus/{{item.id}}"
+
+class="btn btn-danger btn-sm"
+
+onclick="return confirm('Hapus kegiatan ini?')">
+
+Hapus
+
+</a>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+{% endblock %}
